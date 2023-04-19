@@ -1,0 +1,40 @@
+moreid => Null 
+simtype => INT 
+type => simtype 
+vardec => ID moreid COLON type
+morevd => Null 
+vardecs => VAR vardec SEMI morevd 
+prodecs => Null 
+variable => ID 
+sign => Null 
+constant => NUM 
+factor => constant 
+moreMulOp => Null 
+term => factor moreMulOp 
+moreAddOp => Null 
+simpExpression => sign term moreAddOp 
+expression => simpExpression 
+assiStmt => variable ASSIGN expression 
+simstmt => assiStmt 
+stmt => simstmt 
+sign => Null 
+variable => ID 
+factor => variable 
+moreMulOp => Null 
+term => factor moreMulOp 
+moreAddOp => Null 
+simpExpression => sign term moreAddOp 
+expression => simpExpression 
+outputVal => expression 
+moreOutputVal => Null 
+writeStmt => WRITE LP outputVal moreOutputVal RP 
+simstmt => writeStmt 
+stmt => simstmt 
+morestm => Null 
+morestm => SEMI stmt morestm 
+comstmt => BG stmt morestm	END 
+stmts => comstmt 
+block=>vardecs prodecs stmts 
+prog => PROG ID SEMI block DOT 
+********Parsed OK!**********
+
